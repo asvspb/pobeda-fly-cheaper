@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск дешевых билетов</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Поиск дешевых билетов</h1>
+        <form id="searchForm">
+            <label for="origin">Город отправления:</label>
+            <select id="origin" name="origin" required>
+                {% for key, city in cities.items() %}
+                <option value="{{ key }}">{{ city['name'] }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="destination">Город назначения:</label>
+            <select id="destination" name="destination" required>
+                {% for key, city in cities.items() %}
+                <option value="{{ key }}">{{ city['name'] }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="start_date">Дата начала поиска:</label>
+            <input type="text" id="start_date" name="start_date" placeholder="ДД.ММ.ГГГГ">
+
+            <label for="days">Количество дней:</label>
+            <input type="number" id="days" name="days" min="1" value="10">
+
+            <button type="submit">Найти билеты</button>
+        </form>
+
+        <div id="loading" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Поиск билетов...</p>
+        </div>
+
+        <div id="results" style="display: none;">
+            <h2>Результаты поиска:</h2>
+            <table id="resultsTable">
+                <thead>
+                    <tr>
+                        <th>Дата</th>
+                        <th>Цена</th>
+                        <th>Вылет</th>
+                        <th>Прилет</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>
