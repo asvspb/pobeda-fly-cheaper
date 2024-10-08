@@ -46,9 +46,8 @@
 ### Установка приложения
 
 1. **Клонирование репозитория**:
-TODO
    ```bash
-   git clone https://github.com/your-username/ticket-search-app.git
+   git clone https://github.com/asvspb/pobeda-fly-cheaper.git
    cd ticket-search-app
    ```
 
@@ -95,9 +94,8 @@ TODO
 ### Установка приложения
 
 1. **Клонирование репозитория**:
-TODO
    ```bash
-   git clone https://github.com/your-username/ticket-search-app.git
+   git clone https://github.com/asvspb/pobeda-fly-cheaper.git
    cd ticket-search-app
    ```
 
@@ -122,7 +120,3 @@ TODO
   ```bash
   docker-compose down
   ```
-
-## Примечание
-TODO
-Убедитесь, что вы заменили `your-username` на ваше реальное имя пользователя на GitHub или адрес вашего репозитория.

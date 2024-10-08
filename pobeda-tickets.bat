@@ -33,9 +33,8 @@ if %errorlevel% neq 0 (
     echo Git is already installed.
 )
 
-TODO
 :: Clone repository
-set "repo_url=https://github.com/your-username/ticket-search-app.git"
+set "repo_url=https://github.com/asvspb/pobeda-fly-cheaper.git"
 set "project_folder=ticket-search-app"
 
 if not exist "%project_folder%" (

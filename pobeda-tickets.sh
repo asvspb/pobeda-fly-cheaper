@@ -20,9 +20,8 @@ else
     echo "Git is already installed."
 fi
 
-TODO
 # Clone repository
-REPO_URL="https://github.com/your-username/ticket-search-app.git"
+REPO_URL="https://github.com/asvspb/pobeda-fly-cheaper.git"
 PROJECT_FOLDER="ticket-search-app"
 
 if [ ! -d "$PROJECT_FOLDER" ]; then
