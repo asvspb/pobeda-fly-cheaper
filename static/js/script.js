@@ -5,6 +5,22 @@ document.addEventListener('DOMContentLoaded', function () {
         defaultDate: new Date().fp_incr(1)
     });
 
+    const sortButton = document.getElementById('sortButton');
+    sortButton.addEventListener('click', sortResultsByPrice);
+
+    function sortResultsByPrice() {
+        const tbody = document.querySelector('#resultsTable tbody');
+        const rows = Array.from(tbody.querySelectorAll('tr'));
+
+        rows.sort((a, b) => {
+            const priceA = parseFloat(a.cells[1].textContent.replace('₽', '').replace(/\s/g, ''));
+            const priceB = parseFloat(b.cells[1].textContent.replace('₽', '').replace(/\s/g, ''));
+            return priceA - priceB;
+        });
+
+        rows.forEach(row => tbody.appendChild(row));
+    }
+
     document.getElementById('searchForm').addEventListener('submit', function (event) {
         event.preventDefault();
 
@@ -23,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('loading').style.display = 'flex';
         document.getElementById('results').style.display = 'none';
         document.querySelector('#resultsTable tbody').innerHTML = '';
+        sortButton.style.display = 'none'; // Скрываем кнопку сортировки при начале нового поиска
 
         const eventSource = new EventSource('/search?' + new URLSearchParams(formData).toString());
 
@@ -32,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 eventSource.close();
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('results').style.display = 'block';
+                sortButton.style.display = 'block'; // Показываем кнопку сортировки
             } else if (data.error) {
                 addRowToTable(data.date || 'Неизвестная дата', 'Ошибка: ' + data.error, '', '');
             } else {
