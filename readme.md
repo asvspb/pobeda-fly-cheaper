@@ -46,7 +46,7 @@
 ### Установка приложения
 
 1. **Клонирование репозитория**:
-
+TODO
    ```bash
    git clone https://github.com/your-username/ticket-search-app.git
    cd ticket-search-app
@@ -95,7 +95,7 @@
 ### Установка приложения
 
 1. **Клонирование репозитория**:
-
+TODO
    ```bash
    git clone https://github.com/your-username/ticket-search-app.git
    cd ticket-search-app
@@ -124,5 +124,5 @@
   ```
 
 ## Примечание
-
+TODO
 Убедитесь, что вы заменили `your-username` на ваше реальное имя пользователя на GitHub или адрес вашего репозитория.
