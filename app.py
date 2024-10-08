@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, Response, stream_with_context
+from flask import Flask, render_template, request, Response, stream_with_context
 from ticket_scraper import get_cheapest_tickets
 from config import cities
 import traceback

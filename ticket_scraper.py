@@ -8,8 +8,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 import traceback
-from config import cities
-
+from config import cities  # noqa: F401
 def get_cheapest_tickets(origin, destination, start_date_input, days):
     chrome_options = Options()
     chrome_options.add_argument("--headless")
@@ -56,7 +55,7 @@ def get_cheapest_tickets(origin, destination, start_date_input, days):
                     'error': 'Билеты не найдены'
                 }
 
-        except Exception as e:
+        except Exception:
             print(f"Не удалось получить данные на {formatted_date}.")
             print(traceback.format_exc())
             yield {
