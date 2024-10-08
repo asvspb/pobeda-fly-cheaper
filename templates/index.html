@@ -23,7 +23,7 @@
             <label for="destination">Город назначения:</label>
             <select id="destination" name="destination" required>
                 {% for key, city in cities.items() %}
-                <option value="{{ key }}">{{ city['name'] }}</option>
+                <option value="{{ key }}" {% if city['name']=='Москва' %}selected{% endif %}>{{ city['name'] }}</option>
                 {% endfor %}
             </select>
 

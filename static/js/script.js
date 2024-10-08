@@ -4,7 +4,13 @@ document.addEventListener('DOMContentLoaded', function () {
         minDate: "today",
         defaultDate: new Date().fp_incr(1)
     });
-
+    const destinationSelect = document.getElementById('destination');
+    for (let i = 0; i < destinationSelect.options.length; i++) {
+        if (destinationSelect.options[i].text === 'Москва') {
+            destinationSelect.selectedIndex = i;
+            break;
+        }
+    }
     const sortButton = document.getElementById('sortButton');
     sortButton.addEventListener('click', sortResultsByPrice);
 
