@@ -87,36 +87,25 @@
 
 ### Предварительные требования
 
-1. **Установка Docker и Docker Compose**: Убедитесь, что у вас установлены Docker и Docker Compose. Если нет, установите их, следуя официальной документации:
+0. **Установка Docker и Docker Compose**: Убедитесь, что у вас установлены Docker и Docker Compose. Если нет, установите их, следуя официальной документации:
    - [Установка Docker](https://docs.docker.com/get-docker/)
    - [Установка Docker Compose](https://docs.docker.com/compose/install/)
 
 ### Установка приложения
-
 1. **Клонирование репозитория**:
-   ```bash
-   git clone https://github.com/asvspb/pobeda-fly-cheaper.git
-   cd ticket-search-app
-   ```
+Выполните команду для загрузки образа с Docker Hub:
 
-2. **Создание и запуск контейнера**:
+```bash
+docker pull asvspb/pobeda-tickets-app:latest
+```
 
-   ```bash
-   docker-compose up --build
-   ```
+2. **Запуск контейнера**:
+После загрузки образа запустите контейнер:
 
-3. **Доступ к приложению**: Откройте браузер и перейдите по адресу [http://localhost:5000](http://localhost:5000).
+```bash
+docker run -d -p 5000:5000 asvspb/pobeda-tickets-app:latest
+```
+Эта команда запустит контейнер в фоновом режиме (`-d`) и пробросит порт `5000` из контейнера на порт `5000` вашей хост-машины (`-p 5000:5000`).
 
-### Управление приложением
-
-- **Запуск в фоновом режиме**:
-
-  ```bash
-  docker-compose up -d
-  ```
-
-- **Остановка приложения**:
-
-  ```bash
-  docker-compose down
-  ```
+3. **Доступ к приложению**:
+Теперь ваше приложение должно быть доступно по адресу `http://localhost:5000` в вашем веб-браузере.
